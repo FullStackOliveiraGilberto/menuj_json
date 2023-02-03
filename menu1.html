@@ -1,0 +1,892 @@
+
+
+<style>
+
+.navbar .dropdown-menu div[class*="col"] {
+    margin-bottom:1rem;
+ }
+ 
+ .navbar .dropdown-menu {
+   border:none;
+   background-color:rgb(0, 115, 168)!important;
+   margin-top:8px;
+ }
+ 
+ 
+   
+ .navbar {
+   padding-top:0px;
+   padding-bottom:0px;
+ }
+ 
+ .navbar .nav-item {
+   padding:.5rem .5rem;
+   margin:0 .25rem;
+ }
+ 
+ .navbar .dropdown {position:static;}
+ 
+ .navbar .dropdown-menu {
+   width:100%;
+   left:0;
+   right:0;
+   top:45px;
+ }
+   
+ .navbar .dropdown:hover .dropdown-menu, .navbar .dropdown .dropdown-menu:hover {
+   display:block!important;
+ }
+   
+   .navbar .dropdown-menu {
+     border: 1px solid rgba(0,0,0,.15);
+     background-color: #fff;
+   }
+ 
+ a.i{
+   margin-top:-20px;
+   font-weight: 400;
+   color:white;
+ }
+ 
+ a.catogary{
+   margin-left:-20px;
+   color:white;
+ }
+ 
+ button.srch{
+   padding:0px;
+ }
+ 
+ @media only screen and (max-width: 1024px) and (min-width: 768px)  {
+ 
+ input.srch{
+   padding:0px;
+   width:100%;
+ }
+ }
+ 
+ a.nav-link.active{
+   font-weight: 700;
+   background-color: #6B5B95;
+   color:white;
+  
+ }
+ 
+ a.navbar-brand{
+   color:white;
+ }
+ 
+ 
+ span.navbar-toggler.icon{
+   color:black;
+ }
+ 
+  .img_search
+  {
+    background-image: url('img/baseline_search_white_18dp.png');
+    background-position: 1px 4px;
+    background-repeat: no-repeat;
+    background-size: 29px 35px;
+    padding-left: 41px;
+    color: #000;
+  }
+  
+  
+  
+
+ 
+ 
+ 
+</style>
+
+
+
+<!-- 
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	 <link href="css/bootstrap.min.v4.3.1.css" rel="stylesheet">
+	 
+	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+
+	 
+--> 
+
+	 <link href="css/bootstrap.min.v4.3.1.css" rel="stylesheet">
+	 
+
+
+<script>
+
+
+$(document).ready(function() {
+
+$(window).resize(function(){
+	if ($(window).width() >= 980){	
+
+      $(".navbar .dropdown-toggle").hover(function () {
+         $(this).parent().toggleClass("show");
+         $(this).parent().find(".dropdown-menu").toggleClass("show"); 
+       });
+
+      $( ".navbar .dropdown-menu" ).mouseleave(function() {
+        $(this).removeClass("show");  
+      });
+  
+	}	
+});  
+  
+  
+
+});
+
+</script>
+
+<!-- Area de  Cabeçalho - Logo -- >
+
+
+<!--Navigation Var-->
+<nav class="navbar navbar-expand-sm  bg-info" style=" border-color: #bd5a5a; background-color: #7c1313!important;  " >
+	<a class="navbar-brand" href="#">Home</a>
+
+	<!--Toggle Collapse Button-->
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!--Division for navbar-->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+   
+    <!--UL for links-->
+    <ul class="navbar-nav mr-auto">
+    
+     <!-- menu principal 1-->
+      <li class="nav-item dropdown">
+
+        <a class="nav-link dropdown-toggle catogary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <strong> Administrativo CTA </strong>
+        </a>
+
+        <!--Div for catogary 1-->
+			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			  <div class="container">
+				<div class="row">   <!--Row 1-->
+				
+				  <div class="col-md-3"> <!--Column 1 inicio-->
+					<ul class="nav flex-column">
+					<li class="nav-item">
+					  <a class="nav-link active" href="#">Gestão</a>   <!-- SubColuna --> 
+					</li>
+					
+					<li class="nav-item">
+					  <a class="nav-link i" href="#">Execução da Esteira</a>  <!-- ItensColuna --> 
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link i" href="controleAgendamento.html">Controle de Agendamentos do CAM</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link i" href="#">Gestão do processamento em ambientes de teste</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link i" href="#">Cad1</a>
+					</li>
+					<!-- itensColunas --> 
+				  </ul>
+				  </div>   <!-- Fim coluna 1  --> 
+
+				 <div class="col-md-3">  <!--Column 2-->
+					<ul class="nav flex-column">
+					<li class="nav-item">
+					  <a class="nav-link active" href="#">Monitoramento</a>   <!-- SubColuna --> 
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link i" href="#">Integrações</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link i" href="#">Status do processamento</a>
+					</li>
+					 <li class="nav-item">
+					  <a class="nav-link i" href="#">Gestão do processamento do ambiente</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link i" href="#">Status do processamento</a>
+					</li>
+					
+					 <li class="nav-item">
+						<a class="nav-link active" href="#">Importações</a>    <!-- SubColuna --> 
+					 </li>
+					
+					<li class="nav-item">
+					  <a class="nav-link i" href="#">Importação dos Movimentos GISxCTA </a>
+					</li>
+					 <li class="nav-item">
+					  <a class="nav-link i" href="#">Cad1.1.1</a>
+					</li>
+				  </ul>
+				  </div>
+				  
+	<!--
+				  <div class="col-md-3">  <!--Column 3--><!-- 
+					<ul class="nav flex-column">
+					<li class="nav-item">
+					  <a class="nav-link active" href="#">Cad1.2</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link i" href="#">Cad1.2</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link i" href="#">Cad1.2</a>
+					</li>
+					 <li class="nav-item">
+					  <a class="nav-link i" href="#">Cad1.2</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link i" href="#">Cad1.2</a>
+					</li>
+					 <li class="nav-item">
+					  <a class="nav-link i" href="#">Cad1.2</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link i" href="#">Cad1.2</a>
+					</li>
+				  </ul>
+				  </div>
+
+
+	-->
+				  <div class="col-md-3">  <!--Column 4--> 
+					<ul class="nav flex-column">
+					<li class="nav-item">
+					  <a class="nav-link active" href="#">Relatórios</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link i" href="#">Analítico por arquivo </a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link i" href="#">Consulta de Logs de Aplicação</a>
+					</li>
+					 <li class="nav-item">
+					  <a class="nav-link i" href="#">Cad1.3</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link i" href="#">Cad1.3</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link active" href="#">Manutenção na Base de dados</a>
+					</li>
+						<li class="nav-item">
+						  <a class="nav-link i" href="#">Limpeza da base CTA-OIM</a>
+						</li>
+						<li class="nav-item">
+						  <a class="nav-link i" href="#">Cad1.4</a>
+						</li>
+						
+					<li class="nav-item">
+					  <a class="nav-link active" href="#">Manutenção na Base de dados</a>
+					</li>
+						<li class="nav-item">
+						  <a class="nav-link i" href="#">Limpeza da base CTA-OIM</a>
+						</li>
+						<li class="nav-item">
+						  <a class="nav-link i" href="#">Cad1.4</a>
+						</li>
+						
+				  </ul>
+				  </div> <!--Column 4--> 
+				  
+				  <div class="col-md-3">  <!--Column 5--> 
+					<ul class="nav flex-column">
+					<li class="nav-item">
+					  <a class="nav-link active" href="#">Relatórios</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link i" href="#">Analítico por arquivo </a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link i" href="#">Consulta de Logs de Aplicação</a>
+					</li>
+					 <li class="nav-item">
+					  <a class="nav-link i" href="#">Cad1.3</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link i" href="#">Cad1.3</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link active" href="#">Manutenção na Base de dados</a>
+					</li>
+						<li class="nav-item">
+						  <a class="nav-link i" href="#">Limpeza da base CTA-OIM</a>
+						</li>
+						<li class="nav-item">
+						  <a class="nav-link i" href="#">Cad1.4</a>
+						</li>
+						
+					<li class="nav-item">
+					  <a class="nav-link active" href="#">Manutenção na Base de dados</a>
+					</li>
+						<li class="nav-item">
+						  <a class="nav-link i" href="#">Limpeza da base CTA-OIM</a>
+						</li>
+						<li class="nav-item">
+						  <a class="nav-link i" href="#">Cad1.4</a>
+						</li>
+						
+				  </ul>
+				  </div> <!--Column 5--> 
+				  
+				  
+				  
+				  
+				  
+				  
+
+				</div>
+			  </div>
+
+			</div>
+      </li>
+
+
+     <!-- menu principal 2-->
+      <li class="nav-item dropdown">
+        
+        <a class="nav-link dropdown-toggle catogary" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <strong> Gestão do Sistema </strong>
+        </a>
+
+        <!--Div for catogary 2-->
+
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+          <div class="container">
+            <div class="row"> <!--Row 1-->
+              <div class="col-md-3"> <!--Column 1-->
+                <ul class="nav flex-column">
+				
+				 <li class="nav-item">
+                  <a class="nav-link active" href="#"></a>
+                </li>
+				
+				
+				<li class="nav-item">
+                  <a class="nav-link i" href="#">Manutenção de Aplicação</a>
+                </li>
+				
+				<li class="nav-item">
+                  <a class="nav-link i" href="#">Manutenção de Grupos</a>
+                </li>
+				
+				
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Manutenção de Usuários</a>
+                </li>
+                
+				 <li class="nav-item">
+                  <a class="nav-link i" href="#">Auditoria</a>
+                </li>
+               
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Log do Sistema</a>
+                </li>
+                
+              </ul>
+              </div>
+
+<!--
+              <div class="col-md-3"> <!--Column 2--><!--
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">KITCHEN</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Electric Heater</a>
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link i" href="#">Toaster</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">DAILY USE</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Water Heater</a>
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link i" href="#">Induction Cooker</a>
+                </li>
+              </ul>
+              </div>
+ -->
+ <!--
+               <div class="col-md-3"> <!--Column 3--><!--
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">COMPUTERS & ACCESSORIES</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Laptops</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Hard Drives</a>
+                </li>
+                  <li class="nav-item">
+                  <a class="nav-link i" href="#">Pen Drives</a>
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link i" href="#">Mouse & Keyboards</a>
+                </li>
+
+              </ul>
+              </div>
+                         
+            </div>
+          </div>
+        </div>
+
+      </li>
+-->
+<!--
+
+
+                 <!-- Catagory 3--><!--
+      <li class="nav-item dropdown">
+        
+        <a class="nav-link dropdown-toggle catogary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <strong> Cadastro3 </strong>
+        </a>
+        
+                <!--Div for catogary 3--><!--
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="container">
+            <div class="row"> <!--Row 1--><!--
+              <div class="col-md-3">  <!--Column 1--><!--
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Object 1</a>
+                </li>
+               <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 3</a>
+                </li>
+              </ul>
+              </div>
+-->
+<!--
+              <div class="col-md-3"> <!--Column 2--><!--
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Object 2</a>
+                </li>
+               <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 3</a>
+                </li>
+              </ul>
+              </div>
+-->
+<!--
+             <div class="col-md-3">  <!--Column 3--><!--
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Object 3</a>
+                </li>
+               <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 3</a>
+                </li>
+              </ul>
+              </div>
+-->
+<!--
+               <div class="col-md-3">  <!--Column 4--><!--
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Object 4</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 3</a>
+                </li>
+              </ul>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </li>
+-->
+<!--
+
+                 <!-- Catagory 4--><!--
+<li class="nav-item dropdown">
+        
+        <a class="nav-link dropdown-toggle catogary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <strong>Cadastro4</strong>
+        </a>
+        
+                <!--Div for catogary 4--><!--
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="container">
+            <div class="row"> <!--Row 1--> <!--
+              <div class="col-md-3">  <!--Column 1--> <!--
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Object 1</a>
+                </li>
+               <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 3</a>
+                </li>
+              </ul>
+              </div>
+
+              <div class="col-md-3"> <!--Column 2--> <!--
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Object 2</a>
+                </li>
+               <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 3</a>
+                </li>
+              </ul>
+              </div>
+
+             <div class="col-md-3">  <!--Column 3-->  <!--
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Object 3</a>
+                </li>
+               <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 3</a>
+                </li>
+              </ul>
+              </div>
+
+               <div class="col-md-3">  <!--Column 4--> <!--
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Object 4</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 3</a>
+                </li>
+              </ul>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+-->
+      </li>
+    </ul>
+
+    <!--Search-->
+    <form class="form-inline">
+     
+	<div class="input-group">
+	  <div class="form-outline">
+		<input type="search" id="form1" placeholder="Search" class=" form-control    " />
+		
+	  </div>
+	  <button type="button" class="btn btn-primary img_search "  >
+		<i class="fas fa-search"></i>
+		
+	  </button>
+	</div>
+	
+	
+	</form>
+	
+	
+
+
+  </div>
+
+</nav>
+
+
+ <script>
+    // prevent navigation
+    document.addEventListener(&quot;DOMContentLoaded&quot;, function() {
+      var links = document.getElementsByTagName(&quot;A&quot;);
+      for(var i=0; i < links.length; i++) {
+        links[i].addEventListener(&quot;click&quot;, function(e) {
+          var href = this.getAttribute(&quot;href&quot;)
+
+          if (!href) {
+            return
+          }
+
+          if (href === '#') {
+            // hash only ('#')
+            console.debug('Internal nav allowed by Codeply');
+            e.preventDefault()
+          }
+          else if (this.hash) {
+            // hash with tag ('#foo')
+            var element = null
+            try {
+              element = document.querySelector(this.hash)
+            }
+            catch(e) {
+              console.debug('Codeply internal nav querySelector failed')
+            }
+            if (element) {
+              // scroll to anchor
+              e.preventDefault();
+              const top = element.getBoundingClientRect().top + window.pageYOffset
+              //window.scrollTo({top, behavior: 'smooth'})
+              window.scrollTo(0,top)
+              console.debug('Internal anchor controlled by Codeply to element:' + this.hash)
+            }
+            else {
+              // allow javascript routing
+              console.debug('Internal nav route allowed by Codeply');
+            }
+          }
+          else if (href.indexOf(&quot;/p/&quot;)===0 || href.indexOf(&quot;/v/&quot;)===0) {
+            // special multi-page routing
+            console.debug('Special internal page route: ' + href)
+
+            var l = href.replace('/p/','/v/')
+
+            // reroute
+            e.preventDefault()
+            var newLoc = l + '?from=internal'
+            console.debug('Internal view will reroute to ' + newLoc) 
+            location.href = newLoc
+          }
+          else if (href.indexOf(&quot;./&quot;)===0) {
+            // special multi-page routing
+            console.debug('Special internal ./ route: ' + href)
+
+            var u = parent.document.URL.split(&quot;/&quot;)
+            var pn = href.split(&quot;/&quot;)[1]
+            var plyId = u[u.length-1]
+
+            if (plyId.indexOf('?from')>-1) {
+              // already rerouted this
+              console.debug('already rerouted')
+              plyId = u[u.length-2]
+            }
+
+            var l = plyId + '/' + pn
+            
+            console.debug(u)
+            console.debug(pn)
+            console.debug('l',l)
+
+            // reroute
+            e.preventDefault()
+            var newLoc = '/v/' + l + '?from=internal'
+            console.debug('Internal page will reroute to ' + newLoc) 
+            location.href = newLoc
+          }
+          else {
+            // no external links
+            e.preventDefault();
+            console.debug('External nav prevented by Codeply');
+          }
+          //return false;
+        })
+      }
+    }, null);
+  </script>
+
+<!-- 
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline">Menu</span>
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link align-middle px-0">
+                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
+                    </li>
+                    <li>
+                        <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
+                        <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
+                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
+                    </li>
+                </ul>
+                <hr>
+                <div class="dropdown pb-4">
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                        <span class="d-none d-sm-inline mx-1">User</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                        <li><a class="dropdown-item" href="#">New project...</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col py-3">
+		
+		                <h3>Left Sidebar with Submenus</h3>
+            <p class="lead">
+                An example 2-level sidebar with collasible menu items. The menu functions like an "accordion" where only a single 
+                menu is be open at a time. While the sidebar itself is not toggle-able, it does responsively shrink in width on smaller screens.</p>
+            <ul class="list-unstyled">
+                <li><h5>Responsive</h5> shrinks in width, hides text labels and collapses to icons only on mobile</li>
+				
+			 <h3>Left Sidebar with Submenus</h3>
+            <p class="lead">
+                An example 2-level sidebar with collasible menu items. The menu functions like an "accordion" where only a single 
+                menu is be open at a time. While the sidebar itself is not toggle-able, it does responsively shrink in width on smaller screens.</p>
+            <ul class="list-unstyled">
+                <li><h5>Responsive</h5> shrinks in width, hides text labels and collapses to icons only on mobile</li>
+
+            <h3>Left Sidebar with Submenus</h3>
+            <p class="lead">
+                An example 2-level sidebar with collasible menu items. The menu functions like an "accordion" where only a single 
+                menu is be open at a time. While the sidebar itself is not toggle-able, it does responsively shrink in width on smaller screens.</p>
+            <ul class="list-unstyled">
+                <li><h5>Responsive</h5> shrinks in width, hides text labels and collapses to icons only on mobile</li>
+				
+			 <h3>Left Sidebar with Submenus</h3>
+            <p class="lead">
+                An example 2-level sidebar with collasible menu items. The menu functions like an "accordion" where only a single 
+                menu is be open at a time. While the sidebar itself is not toggle-able, it does responsively shrink in width on smaller screens.</p>
+            <ul class="list-unstyled">
+                <li><h5>Responsive</h5> shrinks in width, hides text labels and collapses to icons only on mobile</li>
+
+            <h3>Left Sidebar with Submenus</h3>
+            <p class="lead">
+                An example 2-level sidebar with collasible menu items. The menu functions like an "accordion" where only a single 
+                menu is be open at a time. While the sidebar itself is not toggle-able, it does responsively shrink in width on smaller screens.</p>
+            <ul class="list-unstyled">
+                <li><h5>Responsive</h5> shrinks in width, hides text labels and collapses to icons only on mobile</li>
+				
+			 <h3>Left Sidebar with Submenus</h3>
+            <p class="lead">
+                An example 2-level sidebar with collasible menu items. The menu functions like an "accordion" where only a single 
+                menu is be open at a time. While the sidebar itself is not toggle-able, it does responsively shrink in width on smaller screens.</p>
+            <ul class="list-unstyled">
+                <li><h5>Responsive</h5> shrinks in width, hides text labels and collapses to icons only on mobile</li>
+
+		
+            <h3>Left Sidebar with Submenus</h3>
+            <p class="lead">
+                An example 2-level sidebar with collasible menu items. The menu functions like an "accordion" where only a single 
+                menu is be open at a time. While the sidebar itself is not toggle-able, it does responsively shrink in width on smaller screens.</p>
+            <ul class="list-unstyled">
+                <li><h5>Responsive</h5> shrinks in width, hides text labels and collapses to icons only on mobile</li>
+				
+			 <h3>Left Sidebar with Submenus</h3>
+            <p class="lead">
+                An example 2-level sidebar with collasible menu items. The menu functions like an "accordion" where only a single 
+                menu is be open at a time. While the sidebar itself is not toggle-able, it does responsively shrink in width on smaller screens.</p>
+            <ul class="list-unstyled">
+                <li><h5>Responsive</h5> shrinks in width, hides text labels and collapses to icons only on mobile</li>
+				
+				
+				
+            </ul>
+        </div>
+    </div>
+</div>
+
+-->
+
+

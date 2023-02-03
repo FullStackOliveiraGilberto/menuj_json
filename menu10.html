@@ -1,0 +1,840 @@
+<html>
+<head>
+
+<style>
+
+.navbar .dropdown-menu div[class*="col"] {
+    margin-bottom:1rem;
+ }
+ 
+ .navbar .dropdown-menu {
+   border:none;
+   background-color:rgb(0, 115, 168)!important;
+   margin-top:8px;
+ }
+ 
+ 
+   
+ .navbar {
+   padding-top:0px;
+   padding-bottom:0px;
+ }
+ 
+ .navbar .nav-item {
+   padding:.5rem .5rem;
+   margin:0 .25rem;
+ }
+ 
+ .navbar .dropdown {position:static;}
+ 
+ .navbar .dropdown-menu {
+   width:100%;
+   left:0;
+   right:0;
+   top:45px;
+ }
+   
+ .navbar .dropdown:hover .dropdown-menu, .navbar .dropdown .dropdown-menu:hover {
+   display:block!important;
+ }
+   
+   .navbar .dropdown-menu {
+     border: 1px solid rgba(0,0,0,.15);
+     background-color: #fff;
+   }
+ 
+ a.i{
+   margin-top:-20px;
+   font-weight: 400;
+   color:white;
+ }
+ 
+ a.catogary{
+   margin-left:-20px;
+   color:white;
+ }
+ 
+ button.srch{
+   padding:0px;
+ }
+ 
+ @media only screen and (max-width: 1024px) and (min-width: 768px)  {
+ 
+ input.srch{
+   padding:0px;
+   width:100%;
+ }
+ }
+ 
+ a.nav-link.active{
+   font-weight: 700;
+   background-color: #6B5B95;
+   color:white;
+  
+ }
+ 
+ a.navbar-brand{
+   color:white;
+ }
+ 
+ 
+ span.navbar-toggler.icon{
+   color:black;
+ }
+ 
+</style>
+
+
+
+
+<link href="css/bootstrap.min.v4.3.1.css" rel="stylesheet">
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<script>
+
+
+
+
+/*
+data = { tabela: 
+
+[
+   {
+      "ID_SCHEDULE":22,
+      "NOME":"Procedure Exportação",
+      "NM_PROCEDURE":"proc_MAS_EXPORTACAO_2030U00",
+      "CD_TPA":37,
+      "DESCRICAO":"Gera arquivo CIV",
+      "TIPO_ARQUIVO":"CIV",
+      "DATAULTIMAEXEC":"2022-11-30",
+      "DATAPROXIMAEXEC":"2022-12-29",
+      "ATIVO":"S",
+      "PERIODO":5,
+      "DT_PROXIMAEXECORI":"2022-12-29",
+      "ORDEM_EXEC":1
+   },
+
+
+,
+     
+	"titulo": "Administrativo",
+    "SubColuna": "Monitoramento",
+    "ItensColuna": [ "Integrações", "Status do processamento","Gestão do processamento do ambiente","Status do processamento" ],
+	
+	"titulo": "Administrativo",
+	"SubColuna": "Importações",
+    "ItensColuna": [ "Importação dos Movimentos GISxCTA", "Cad1.1.1" ]
+    }
+
+*/
+
+
+
+/*
+
+
+	  "index" : "1", 
+	  "titulo": "Administrativo",
+   	  "SubColuna": "Importações",
+	  "ItensColuna": [ "Importação dos Movimentos GISxCTA", "Cad1.1.1" ],
+	  
+	  "index" : "2", 
+      "titulo":"Gestão do Sisemas",
+      "SubColuna":"Monitoramento",
+	  "ItensColuna": ["Manutenção de Aplicativos", "Manutenção de Aplicativos","Manutenção de usuarios","Auditoria" ] ,
+	  
+	 "index" : "2", 
+      "titulo":"Gestão do Sisemas2",
+      "SubColuna":"Monitoramento2",
+	  "ItensColuna": ["Manutenção de Aplicativos", "Manutenção de Aplicativos","Manutenção de usuarios","Auditoria" ] 
+
+*/
+
+data = { tabela: 
+
+[
+   {  "numTitulo": 1,   
+      "SubColuna": 1,  // GESTAO
+      "index": 1 , 
+      "titulo":"Administrativo CTA",
+      "SubColuna":"Gestão",
+	  "ItensColuna": ["Integrações"               , "Status do processamento"             ,"Gestão do processamento do ambiente","Status do processamento" , "Cad1.1"        ] ,
+	  "link":        ["www.integracoes.com" , "www.Statusdoprocessamento.com" , "www.gestProcdoAmbiente.com.br"     , "www.spambi.com.br"      , "www.daddd.com" ] 
+	  
+   },
+   {  "numTitulo": 1,
+      "SubColuna": 1,
+      "index": 2 , 
+      "titulo":"Administrativo CTA2",
+      "SubColuna":"Monitoramento",
+	  "ItensColuna": ["Integrações"               , "Status do processamento"       ,"Gestão do processamento do ambiente","Status do processamento" ] ,
+	  "link":        ["www.integracoes.com/INTRG" , "www.Statusdoprocessamento.com" , "www.gestProcdoAmbiente.com.br"     , "www.spambi.com.br" ] 
+	  
+   },
+    {  "numTitulo": 2,
+      "SubColuna": 1,
+      "index": 3 , 
+      "titulo":"Gestão do sitema",
+      "SubColuna":"Monitoramento",
+	  "ItensColuna": ["Integrações"         , "Status do processamento"       ,"Gestão do processamento do ambiente","Status do processamento" ] ,
+	  "link":        ["www.integracoes.com" , "www.Statusdoprocessamento.com" , "www.gestProcdoAmbiente.com.br"     , "www.spambi.com.br" ] 
+	  
+   }
+   
+] 
+};
+   
+   
+   
+   /*
+   
+var retstr = "<a class='nav-link dropdown-toggle catogary' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
+	retstr = retstr + "<strong> "+p.titulo+ " </strong>";
+	retstr = retstr + "</a>";
+	}
+	
+var retstr2 = "<div class='dropdown-menu' aria-labelledby='navbarDropdown'>"
+	retstr2 = retstr2 + "<div class='container'>"
+	retstr2 = retstr2 + "<div class='row'>"  // <!--Row 1-->
+	retstr2 = retstr2 + "<div class='col-md-3'>" //<!--Column 1 inicio-->
+	retstr2 = retstr2 + "<ul class='nav flex-column'>"
+	retstr2 = retstr2 + "<li class='nav-item'>"
+	retstr2 = retstr2 + "<a class='nav-link active' href='#'>Gestão</a>"   //<!-- SubColuna --> 
+	retstr2 = retstr2 + "</li>"	
+   
+   
+   */
+  
+num_titulo_diferentes=1;
+num_titulo = 1;
+retstr='';
+retstr0='';
+retstr2='';
+retstr3='';
+retstrTot6='';
+retstrFim='';
+retstrTot='';
+vTitulo = '';
+ltitulo = ''; 
+
+        // inicial retirar apos conclusao 
+        var retstr0 = " <div class='collapse navbar-collapse' id='navbarSupportedContent'>"
+		retstr0 = retstr0 +"<ul class='navbar-nav mr-auto'>"
+		retstr0 = retstr0 +"<li class='nav-item dropdown'>"
+
+
+
+      
+
+			data.tabela.forEach(function(p){ 
+			  // if (p.numTitulo == 1 )  { 
+				//console.log('dddddd');
+				//console.log(p.index); 
+				//console.log(p.titulo);       // 1 titulo
+				//console.log(p.SubColuna);    // 2 SubColuna
+				//console.log(p.ItensColuna);  // 3 ItensColuna 
+				num_titulo = num_titulo +1;
+
+				if (vTitulo !=  p.titulo ) {
+				   num_titulo_diferentes = num_titulo_diferentes +1
+				   
+				   vTitulo = p.titulo;
+				}
+
+			
+               
+                if (ltitulo ==  '' ) { 
+				//  titulo
+					var retstr = "<a class='nav-link dropdown-toggle catogary' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
+						retstr = retstr + "<strong> "+p.titulo+ "</strong>";
+						retstr = retstr + "</a>";
+						retstr = retstr + "<div class='dropdown-menu' aria-labelledby='navbarDropdown'>"
+						retstr = retstr + "<div class='container'>"
+					    retstr = retstr + "<div class='row'>"  
+						
+					ltitulo = 	p.titulo ; 
+                }  
+				
+				// if (ltitulo !=  ltitulo && ltitulo !=  '' ) { 
+				//  titulo
+				//	var retstr = "<a class='nav-link dropdown-toggle catogary' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
+				//		retstr = retstr + "<strong> "+p.titulo+ "</strong>";
+				//		retstr = retstr + "</a>";
+				//		retstr = retstr + "<div class='dropdown-menu' aria-labelledby='navbarDropdown'>"
+				//		retstr = retstr + "<div class='container'>"
+				//	    retstr = retstr + "<div class='row'>"  
+			    //			
+				//	ltitulo = 	p.titulo ; 
+                // } 
+				
+				
+			    //	statusCounter()
+
+				//  Coluna Fixa  SubColuna
+				var 
+					retstr2 = "<div class='col-md-3'>" 
+					retstr2 = retstr2 + "<ul class='nav flex-column'>"
+					retstr2 = retstr2 + "<li class='nav-item'>"
+					retstr2 = retstr2 + "<a class='nav-link active' href='#'><strong> "+ p.SubColuna  +"</strong> </a>"    
+					retstr2 = retstr2 + "</li>"	
+				
+				console.log('ItensColuna.length:::' + p.ItensColuna.length);
+				
+						//  ItensColuna  
+						retstr4='';
+						for(var pos = 0 ; pos < p.ItensColuna.length; pos++ ) {  
+							var retstr3 =  "<li class='nav-item'>"
+								retstr3 = retstr3 + "<a class='nav-link i' href='"+ p.link[pos] +"'>"+ p.ItensColuna[pos]  +"</a>" 
+								retstr3 = retstr3 + "</li>"
+
+							var retstr4 = retstr4 + retstr3 
+							
+							}
+				
+				 retstrTot = retstrTot 	+ retstr + retstr2 + retstr4 + "</ul></div>"
+            //   } // fim do IF numTitulo     (p.numTitulo == 1 )  { 
+			});  // fim for 
+			
+			
+		
+
+retstrFim = retstrFim +  "</div></div> </li> </ul>"
+
+
+
+
+
+retstrTot6 =   retstr0 + retstrTot + retstrFim
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+
+console.log(retstrTot6);
+
+//document.getElementById('div11').innerHTML = retstrTot6+  "<br> num_titulos diferentes são: " + num_titulo_diferentes;
+
+
+
+
+
+$(document).ready(function() {
+
+$('#div10').html(retstrTot6);
+
+	$(window).resize(function(){
+		if ($(window).width() >= 980){	
+
+		  $(".navbar .dropdown-toggle").hover(function () {
+			 $(this).parent().toggleClass("show");
+			 $(this).parent().find(".dropdown-menu").toggleClass("show"); 
+		   });
+
+		  $( ".navbar .dropdown-menu" ).mouseleave(function() {
+			$(this).removeClass("show");  
+		  });
+		}	
+	});  
+});
+
+
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+
+function objectLength(obj) {
+  var result = 0;
+  for(var prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+    // or Object.prototype.hasOwnProperty.call(obj, prop)
+      result++;
+    }
+  }
+  return result;
+}
+
+
+
+
+function titulo(Vtitulo){
+
+var retstr = "<a class='nav-link dropdown-toggle catogary' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
+	retstr = retstr + "<strong> Administrativo CTA </strong>";
+	retstr = retstr + "</a>";
+return retstr;
+
+} 
+
+
+
+
+
+/*
+let texto = `{
+    "nome": "Fulano",
+    "idade": 90,
+    "filmes_preferidos": [ "Pulp Fiction", "Clube da Luta" ],
+    "contatos": {
+        "telefone": "(11) 91111-2222",
+        "emails": [ "fulano@gmail.com", "fulano@yahoo.com" ]
+    }
+}`;
+
+
+
+
+let json = JSON.parse(data);
+// imprimir titulo
+console.log(json.titulo);
+// imprimir SubColunas
+json.ItensColuna.forEach(itens => console.log(SubColuna));
+// imprimir contatos
+for (let [tipo, ItensColuna] of Object.entries(json.ItensColuna)) {
+    console.log(tipo, '=', Array.isArray(contato) ? contato.join() : contato);
+}
+
+// adicionar novo contato
+//json.ItensColuna.twitter = '@fulano';
+// transformar em string (indentado com 2 espaços)
+//console.log(JSON.stringify(json, null, 2));
+
+
+*/
+</script>
+<head>
+<body>
+<div id="div10">sdfdsfsdfdsfds</div>
+
+
+
+
+
+
+
+
+
+<!--Navigation Var-->
+<nav class="navbar navbar-expand-sm  bg-info">
+	<a class="navbar-brand" href="#">Home</a>
+
+	<!--Toggle Collapse Button-->
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!--Division for navbar-->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+   
+    <!--UL for links-->
+    <ul class="navbar-nav mr-auto">
+    
+     <!-- Catagory 1-->
+      <li class="nav-item dropdown">
+
+        <a class="nav-link dropdown-toggle catogary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <strong> Cadastro1 </strong>
+        </a>
+
+        <!--Div for catogary 1-->
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="container">
+            <div class="row">   <!--Row 1-->
+              <div class="col-md-3"> <!--Column 1-->
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Sub Titulo Cad1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1</a>
+                </li>
+              </ul>
+              </div>
+
+             <div class="col-md-3">  <!--Column 2-->
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Cad1.1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1.1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1.1</a>
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1.1</a>
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link active" href="#">Cad1.1.1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1.1.1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1.1.1</a>
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1.1.1</a>
+                </li>
+              </ul>
+              </div>
+
+              <div class="col-md-3">  <!--Column 3-->
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Cad1.2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1.2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1.2</a>
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1.2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1.2</a>
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1.2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1.2</a>
+                </li>
+              </ul>
+              </div>
+
+              <div class="col-md-3">  <!--Column 4-->
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Cad1.3</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1.3</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1.3</a>
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1.3</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1.3</a>
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link active" href="#">Cad1.4</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1.4</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Cad1.4</a>
+                </li>
+              </ul>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </li>
+
+
+           <!-- Catagory 2-->
+   <li class="nav-item dropdown">
+        
+        <a class="nav-link dropdown-toggle catogary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <strong> Cadastro2 </strong>
+        </a>
+
+        <!--Div for catogary 2-->
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="container">
+            <div class="row"> <!--Row 1-->
+              <div class="col-md-3"> <!--Column 1-->
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">MOBILE</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Sony</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Samsung</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Apple</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Xiaomi</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Lenevo</a>
+                </li>
+              </ul>
+              </div>
+
+              <div class="col-md-3"> <!--Column 2-->
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">KITCHEN</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Electric Heater</a>
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link i" href="#">Toaster</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">DAILY USE</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Water Heater</a>
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link i" href="#">Induction Cooker</a>
+                </li>
+              </ul>
+              </div>
+
+               <div class="col-md-3"> <!--Column 3-->
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">COMPUTERS & ACCESSORIES</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Laptops</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Hard Drives</a>
+                </li>
+                  <li class="nav-item">
+                  <a class="nav-link i" href="#">Pen Drives</a>
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link i" href="#">Mouse & Keyboards</a>
+                </li>
+
+              </ul>
+              </div>
+                         
+            </div>
+          </div>
+        </div>
+
+      </li>
+
+
+
+                 <!-- Catagory 3-->
+      <li class="nav-item dropdown">
+        
+        <a class="nav-link dropdown-toggle catogary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <strong> Cadastro3 </strong>
+        </a>
+        
+                <!--Div for catogary 3-->
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="container">
+            <div class="row"> <!--Row 1-->
+              <div class="col-md-3">  <!--Column 1-->
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Object 1</a>
+                </li>
+               <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 3</a>
+                </li>
+              </ul>
+              </div>
+
+              <div class="col-md-3"> <!--Column 2-->
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Object 2</a>
+                </li>
+               <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 3</a>
+                </li>
+              </ul>
+              </div>
+
+             <div class="col-md-3">  <!--Column 3-->
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Object 3</a>
+                </li>
+               <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 3</a>
+                </li>
+              </ul>
+              </div>
+
+               <div class="col-md-3">  <!--Column 4-->
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Object 4</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 3</a>
+                </li>
+              </ul>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </li>
+
+
+                 <!-- Catagory 4-->
+<li class="nav-item dropdown">
+        
+        <a class="nav-link dropdown-toggle catogary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <strong>Cadastro4</strong>
+        </a>
+        
+                <!--Div for catogary 4-->
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="container">
+            <div class="row"> <!--Row 1-->
+              <div class="col-md-3">  <!--Column 1-->
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Object 1</a>
+                </li>
+               <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 3</a>
+                </li>
+              </ul>
+              </div>
+
+              <div class="col-md-3"> <!--Column 2-->
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Object 2</a>
+                </li>
+               <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 3</a>
+                </li>
+              </ul>
+              </div>
+
+             <div class="col-md-3">  <!--Column 3-->
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Object 3</a>
+                </li>
+               <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 3</a>
+                </li>
+              </ul>
+              </div>
+
+               <div class="col-md-3">  <!--Column 4-->
+                <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Object 4</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link i" href="#">Item 3</a>
+                </li>
+              </ul>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </li>
+    </ul>
+
+    <!--Search-->
+    <form class="form-inline">
+      <input class="form-control srch" type="search" placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome" aria-label="Search">
+    </form>
+
+
+  </div>
+
+
+
+
+</nav>
+
+
+
+
+</body>
+</html>
